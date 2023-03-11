@@ -10,9 +10,9 @@ using System.Windows.Forms;
 
 namespace P520231Melany_R.Formulario
 {
-    public partial class FrmMDIcs : Form
+    public partial class FrmMDI : Form
     {
-        public FrmMDIcs()
+        public FrmMDI()
         {
             InitializeComponent();
         }
@@ -33,6 +33,21 @@ namespace P520231Melany_R.Formulario
         }
 
         private void comprasPorFecToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void gestionDeUsuariosToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            //Codigo para que gestion de usuarios se muestre solo una vez
+            if (!Globales.MiFormGestionUsuarios.Visible)
+            {
+                Globales.MiFormGestionUsuarios = new Usuario_Gestion();
+                Globales.MiFormGestionUsuarios.Show();
+            }
+        }
+
+        private void FrmMDI_Load(object sender, EventArgs e)
         {
 
         }

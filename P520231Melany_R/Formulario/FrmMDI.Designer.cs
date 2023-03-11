@@ -1,6 +1,6 @@
 ﻿namespace P520231Melany_R.Formulario
 {
-    partial class FrmMDIcs
+    partial class FrmMDI
     {
         /// <summary>
         /// Required designer variable.
@@ -30,10 +30,6 @@
         {
             this.MnuPrincipal = new System.Windows.Forms.MenuStrip();
             this.gESTIONESToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.pROCESOSToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.rEPORTESToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.sALIRToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.aCERCADEToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.gestionDeUsuariosToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.gestionDeProductosToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.gestionDeProovedporesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -41,11 +37,15 @@
             this.rolesDeUsuarioToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.tiposDeProovedorToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.tiposDeCompraToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.pROCESOSToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.registroDeComprasToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.rEPORTESToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.comprasPorFecToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.comprasPorProovedorToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.listadoDeInventarioToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.reimpresionDeComprasToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.sALIRToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.aCERCADEToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.MnuPrincipal.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -84,42 +84,12 @@
             this.gESTIONESToolStripMenuItem.Text = "GESTIONES";
             this.gESTIONESToolStripMenuItem.Click += new System.EventHandler(this.gESTIONESToolStripMenuItem_Click);
             // 
-            // pROCESOSToolStripMenuItem
-            // 
-            this.pROCESOSToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.registroDeComprasToolStripMenuItem});
-            this.pROCESOSToolStripMenuItem.Name = "pROCESOSToolStripMenuItem";
-            this.pROCESOSToolStripMenuItem.Size = new System.Drawing.Size(116, 29);
-            this.pROCESOSToolStripMenuItem.Text = "PROCESOS";
-            // 
-            // rEPORTESToolStripMenuItem
-            // 
-            this.rEPORTESToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.comprasPorFecToolStripMenuItem,
-            this.comprasPorProovedorToolStripMenuItem,
-            this.listadoDeInventarioToolStripMenuItem,
-            this.reimpresionDeComprasToolStripMenuItem});
-            this.rEPORTESToolStripMenuItem.Name = "rEPORTESToolStripMenuItem";
-            this.rEPORTESToolStripMenuItem.Size = new System.Drawing.Size(110, 29);
-            this.rEPORTESToolStripMenuItem.Text = "REPORTES";
-            // 
-            // sALIRToolStripMenuItem
-            // 
-            this.sALIRToolStripMenuItem.Name = "sALIRToolStripMenuItem";
-            this.sALIRToolStripMenuItem.Size = new System.Drawing.Size(71, 29);
-            this.sALIRToolStripMenuItem.Text = "SALIR";
-            // 
-            // aCERCADEToolStripMenuItem
-            // 
-            this.aCERCADEToolStripMenuItem.Name = "aCERCADEToolStripMenuItem";
-            this.aCERCADEToolStripMenuItem.Size = new System.Drawing.Size(121, 29);
-            this.aCERCADEToolStripMenuItem.Text = "ACERCA DE";
-            // 
             // gestionDeUsuariosToolStripMenuItem
             // 
             this.gestionDeUsuariosToolStripMenuItem.Name = "gestionDeUsuariosToolStripMenuItem";
             this.gestionDeUsuariosToolStripMenuItem.Size = new System.Drawing.Size(290, 30);
             this.gestionDeUsuariosToolStripMenuItem.Text = "Gestion de Usuarios";
+            this.gestionDeUsuariosToolStripMenuItem.Click += new System.EventHandler(this.gestionDeUsuariosToolStripMenuItem_Click);
             // 
             // gestionDeProductosToolStripMenuItem
             // 
@@ -157,11 +127,30 @@
             this.tiposDeCompraToolStripMenuItem.Size = new System.Drawing.Size(290, 30);
             this.tiposDeCompraToolStripMenuItem.Text = "Tipos de Compra";
             // 
+            // pROCESOSToolStripMenuItem
+            // 
+            this.pROCESOSToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.registroDeComprasToolStripMenuItem});
+            this.pROCESOSToolStripMenuItem.Name = "pROCESOSToolStripMenuItem";
+            this.pROCESOSToolStripMenuItem.Size = new System.Drawing.Size(116, 29);
+            this.pROCESOSToolStripMenuItem.Text = "PROCESOS";
+            // 
             // registroDeComprasToolStripMenuItem
             // 
             this.registroDeComprasToolStripMenuItem.Name = "registroDeComprasToolStripMenuItem";
             this.registroDeComprasToolStripMenuItem.Size = new System.Drawing.Size(258, 30);
             this.registroDeComprasToolStripMenuItem.Text = "Registro de Compras";
+            // 
+            // rEPORTESToolStripMenuItem
+            // 
+            this.rEPORTESToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.comprasPorFecToolStripMenuItem,
+            this.comprasPorProovedorToolStripMenuItem,
+            this.listadoDeInventarioToolStripMenuItem,
+            this.reimpresionDeComprasToolStripMenuItem});
+            this.rEPORTESToolStripMenuItem.Name = "rEPORTESToolStripMenuItem";
+            this.rEPORTESToolStripMenuItem.Size = new System.Drawing.Size(110, 29);
+            this.rEPORTESToolStripMenuItem.Text = "REPORTES";
             // 
             // comprasPorFecToolStripMenuItem
             // 
@@ -188,7 +177,19 @@
             this.reimpresionDeComprasToolStripMenuItem.Size = new System.Drawing.Size(294, 30);
             this.reimpresionDeComprasToolStripMenuItem.Text = "Reimpresion de Compras";
             // 
-            // FrmMDIcs
+            // sALIRToolStripMenuItem
+            // 
+            this.sALIRToolStripMenuItem.Name = "sALIRToolStripMenuItem";
+            this.sALIRToolStripMenuItem.Size = new System.Drawing.Size(71, 29);
+            this.sALIRToolStripMenuItem.Text = "SALIR";
+            // 
+            // aCERCADEToolStripMenuItem
+            // 
+            this.aCERCADEToolStripMenuItem.Name = "aCERCADEToolStripMenuItem";
+            this.aCERCADEToolStripMenuItem.Size = new System.Drawing.Size(121, 29);
+            this.aCERCADEToolStripMenuItem.Text = "ACERCA DE";
+            // 
+            // FrmMDI
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -197,10 +198,11 @@
             this.Controls.Add(this.MnuPrincipal);
             this.IsMdiContainer = true;
             this.MainMenuStrip = this.MnuPrincipal;
-            this.Name = "FrmMDIcs";
+            this.Name = "FrmMDI";
             this.Text = "Sistema de compras";
             this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
             this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.FrmMDIcs_FormClosed);
+            this.Load += new System.EventHandler(this.FrmMDI_Load);
             this.MnuPrincipal.ResumeLayout(false);
             this.MnuPrincipal.PerformLayout();
             this.ResumeLayout(false);

@@ -9,6 +9,9 @@ namespace P520231Melany_R
 {
     public static class Globales
     {
+
         public static Form MiFormPrincipal= new Formulario.FrmMDI();
+
+        public static Formulario.Usuario_Gestion MiFormGestionUsuarios = new Formulario.Usuario_Gestion();
     }
 }
