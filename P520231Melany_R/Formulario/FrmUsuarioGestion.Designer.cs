@@ -33,6 +33,20 @@
             this.CboxVerActivos = new System.Windows.Forms.CheckBox();
             this.DGLista = new System.Windows.Forms.DataGridView();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.btnCancelar = new System.Windows.Forms.Button();
+            this.btnLimpiar = new System.Windows.Forms.Button();
+            this.btnEliminar = new System.Windows.Forms.Button();
+            this.btnModificar = new System.Windows.Forms.Button();
+            this.btnAgregar = new System.Windows.Forms.Button();
+            this.txtDireccionUsuario = new System.Windows.Forms.Label();
+            this.txtUsuarioDireccion = new System.Windows.Forms.TextBox();
+            this.Usuari = new System.Windows.Forms.Label();
+            this.CBRolesUsuario = new System.Windows.Forms.ComboBox();
+            this.txtUsuarioCorreo = new System.Windows.Forms.TextBox();
+            this.txtUsuarioContrseniaContrasenia = new System.Windows.Forms.TextBox();
+            this.txtUsuarioTelefono = new System.Windows.Forms.TextBox();
+            this.txtUsuarioCedula = new System.Windows.Forms.TextBox();
+            this.txtUsuarioNombre = new System.Windows.Forms.TextBox();
             this.txtUsuarioID = new System.Windows.Forms.TextBox();
             this.label8 = new System.Windows.Forms.Label();
             this.label7 = new System.Windows.Forms.Label();
@@ -42,20 +56,12 @@
             this.label3 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.Usuario = new System.Windows.Forms.Label();
-            this.txtUsuarioNombre = new System.Windows.Forms.TextBox();
-            this.txtUsuarioCedula = new System.Windows.Forms.TextBox();
-            this.txtUsuarioTelefono = new System.Windows.Forms.TextBox();
-            this.txtUsuarioContrseniaContrasenia = new System.Windows.Forms.TextBox();
-            this.txtUsuarioCorreo = new System.Windows.Forms.TextBox();
-            this.CBRolesUsuario = new System.Windows.Forms.ComboBox();
-            this.Usuari = new System.Windows.Forms.Label();
-            this.txtUsuarioDireccion = new System.Windows.Forms.TextBox();
-            this.txtDireccionUsuario = new System.Windows.Forms.Label();
-            this.btnAgregar = new System.Windows.Forms.Button();
-            this.btnModificar = new System.Windows.Forms.Button();
-            this.btnEliminar = new System.Windows.Forms.Button();
-            this.btnLimpiar = new System.Windows.Forms.Button();
-            this.btnCancelar = new System.Windows.Forms.Button();
+            this.UsuarioID = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.UsuarioNombre = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.UsuarioCorreo = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.UsuarioCedula = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.UsuarioTelefono = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.UsuarioRolDescripcion = new System.Windows.Forms.DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this.DGLista)).BeginInit();
             this.groupBox1.SuspendLayout();
             this.SuspendLayout();
@@ -99,15 +105,24 @@
             this.DGLista.AllowUserToDeleteRows = false;
             this.DGLista.AllowUserToOrderColumns = true;
             this.DGLista.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.DGLista.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.UsuarioID,
+            this.UsuarioNombre,
+            this.UsuarioCorreo,
+            this.UsuarioCedula,
+            this.UsuarioTelefono,
+            this.UsuarioRolDescripcion});
             this.DGLista.Location = new System.Drawing.Point(12, 49);
             this.DGLista.MultiSelect = false;
             this.DGLista.Name = "DGLista";
             this.DGLista.ReadOnly = true;
             this.DGLista.RowHeadersVisible = false;
             this.DGLista.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.DGLista.Size = new System.Drawing.Size(674, 150);
+            this.DGLista.Size = new System.Drawing.Size(764, 150);
             this.DGLista.TabIndex = 3;
             this.DGLista.VirtualMode = true;
+            this.DGLista.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.DGLista_CellClick);
+            this.DGLista.DataBindingComplete += new System.Windows.Forms.DataGridViewBindingCompleteEventHandler(this.DGLista_DataBindingComplete);
             // 
             // groupBox1
             // 
@@ -141,6 +156,138 @@
             this.groupBox1.TabIndex = 4;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "DetalleUsuario";
+            // 
+            // btnCancelar
+            // 
+            this.btnCancelar.BackColor = System.Drawing.Color.Red;
+            this.btnCancelar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnCancelar.ForeColor = System.Drawing.Color.White;
+            this.btnCancelar.Location = new System.Drawing.Point(620, 229);
+            this.btnCancelar.Name = "btnCancelar";
+            this.btnCancelar.Size = new System.Drawing.Size(106, 46);
+            this.btnCancelar.TabIndex = 22;
+            this.btnCancelar.Text = "Cancelar";
+            this.btnCancelar.UseVisualStyleBackColor = false;
+            // 
+            // btnLimpiar
+            // 
+            this.btnLimpiar.BackColor = System.Drawing.Color.Red;
+            this.btnLimpiar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnLimpiar.ForeColor = System.Drawing.Color.White;
+            this.btnLimpiar.Location = new System.Drawing.Point(467, 227);
+            this.btnLimpiar.Name = "btnLimpiar";
+            this.btnLimpiar.Size = new System.Drawing.Size(106, 46);
+            this.btnLimpiar.TabIndex = 21;
+            this.btnLimpiar.Text = "Limpiar";
+            this.btnLimpiar.UseVisualStyleBackColor = false;
+            // 
+            // btnEliminar
+            // 
+            this.btnEliminar.BackColor = System.Drawing.Color.Red;
+            this.btnEliminar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnEliminar.ForeColor = System.Drawing.Color.White;
+            this.btnEliminar.Location = new System.Drawing.Point(314, 224);
+            this.btnEliminar.Name = "btnEliminar";
+            this.btnEliminar.Size = new System.Drawing.Size(106, 46);
+            this.btnEliminar.TabIndex = 20;
+            this.btnEliminar.Text = "Eliminar";
+            this.btnEliminar.UseVisualStyleBackColor = false;
+            // 
+            // btnModificar
+            // 
+            this.btnModificar.BackColor = System.Drawing.Color.Lime;
+            this.btnModificar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnModificar.ForeColor = System.Drawing.Color.White;
+            this.btnModificar.Location = new System.Drawing.Point(161, 226);
+            this.btnModificar.Name = "btnModificar";
+            this.btnModificar.Size = new System.Drawing.Size(106, 46);
+            this.btnModificar.TabIndex = 19;
+            this.btnModificar.Text = "Modificar";
+            this.btnModificar.UseVisualStyleBackColor = false;
+            // 
+            // btnAgregar
+            // 
+            this.btnAgregar.BackColor = System.Drawing.Color.Lime;
+            this.btnAgregar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnAgregar.ForeColor = System.Drawing.Color.White;
+            this.btnAgregar.Location = new System.Drawing.Point(8, 220);
+            this.btnAgregar.Name = "btnAgregar";
+            this.btnAgregar.Size = new System.Drawing.Size(106, 46);
+            this.btnAgregar.TabIndex = 18;
+            this.btnAgregar.Text = "Agregar";
+            this.btnAgregar.UseVisualStyleBackColor = false;
+            // 
+            // txtDireccionUsuario
+            // 
+            this.txtDireccionUsuario.AutoSize = true;
+            this.txtDireccionUsuario.Location = new System.Drawing.Point(385, 187);
+            this.txtDireccionUsuario.Name = "txtDireccionUsuario";
+            this.txtDireccionUsuario.Size = new System.Drawing.Size(97, 25);
+            this.txtDireccionUsuario.TabIndex = 17;
+            this.txtDireccionUsuario.Text = "Direccion:";
+            // 
+            // txtUsuarioDireccion
+            // 
+            this.txtUsuarioDireccion.Location = new System.Drawing.Point(488, 184);
+            this.txtUsuarioDireccion.Multiline = true;
+            this.txtUsuarioDireccion.Name = "txtUsuarioDireccion";
+            this.txtUsuarioDireccion.ScrollBars = System.Windows.Forms.ScrollBars.Both;
+            this.txtUsuarioDireccion.Size = new System.Drawing.Size(164, 34);
+            this.txtUsuarioDireccion.TabIndex = 16;
+            // 
+            // Usuari
+            // 
+            this.Usuari.AutoSize = true;
+            this.Usuari.Location = new System.Drawing.Point(385, 130);
+            this.Usuari.Name = "Usuari";
+            this.Usuari.Size = new System.Drawing.Size(104, 25);
+            this.Usuari.TabIndex = 15;
+            this.Usuari.Text = "UsuarioRol";
+            // 
+            // CBRolesUsuario
+            // 
+            this.CBRolesUsuario.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.CBRolesUsuario.FormattingEnabled = true;
+            this.CBRolesUsuario.Location = new System.Drawing.Point(506, 130);
+            this.CBRolesUsuario.Name = "CBRolesUsuario";
+            this.CBRolesUsuario.Size = new System.Drawing.Size(159, 33);
+            this.CBRolesUsuario.TabIndex = 14;
+            // 
+            // txtUsuarioCorreo
+            // 
+            this.txtUsuarioCorreo.Location = new System.Drawing.Point(497, 79);
+            this.txtUsuarioCorreo.Name = "txtUsuarioCorreo";
+            this.txtUsuarioCorreo.Size = new System.Drawing.Size(162, 33);
+            this.txtUsuarioCorreo.TabIndex = 13;
+            // 
+            // txtUsuarioContrseniaContrasenia
+            // 
+            this.txtUsuarioContrseniaContrasenia.Location = new System.Drawing.Point(495, 40);
+            this.txtUsuarioContrseniaContrasenia.Name = "txtUsuarioContrseniaContrasenia";
+            this.txtUsuarioContrseniaContrasenia.Size = new System.Drawing.Size(164, 33);
+            this.txtUsuarioContrseniaContrasenia.TabIndex = 12;
+            this.txtUsuarioContrseniaContrasenia.UseSystemPasswordChar = true;
+            // 
+            // txtUsuarioTelefono
+            // 
+            this.txtUsuarioTelefono.Location = new System.Drawing.Point(113, 153);
+            this.txtUsuarioTelefono.Name = "txtUsuarioTelefono";
+            this.txtUsuarioTelefono.Size = new System.Drawing.Size(203, 33);
+            this.txtUsuarioTelefono.TabIndex = 11;
+            // 
+            // txtUsuarioCedula
+            // 
+            this.txtUsuarioCedula.Location = new System.Drawing.Point(113, 114);
+            this.txtUsuarioCedula.Name = "txtUsuarioCedula";
+            this.txtUsuarioCedula.Size = new System.Drawing.Size(203, 33);
+            this.txtUsuarioCedula.TabIndex = 10;
+            // 
+            // txtUsuarioNombre
+            // 
+            this.txtUsuarioNombre.Location = new System.Drawing.Point(113, 72);
+            this.txtUsuarioNombre.Name = "txtUsuarioNombre";
+            this.txtUsuarioNombre.Size = new System.Drawing.Size(203, 33);
+            this.txtUsuarioNombre.TabIndex = 9;
             // 
             // txtUsuarioID
             // 
@@ -224,137 +371,58 @@
             this.Usuario.TabIndex = 0;
             this.Usuario.Text = "Usuario:";
             // 
-            // txtUsuarioNombre
+            // UsuarioID
             // 
-            this.txtUsuarioNombre.Location = new System.Drawing.Point(113, 72);
-            this.txtUsuarioNombre.Name = "txtUsuarioNombre";
-            this.txtUsuarioNombre.Size = new System.Drawing.Size(203, 33);
-            this.txtUsuarioNombre.TabIndex = 9;
+            this.UsuarioID.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
+            this.UsuarioID.DataPropertyName = "UsuarioID";
+            this.UsuarioID.HeaderText = "Cod.Usuario";
+            this.UsuarioID.Name = "UsuarioID";
+            this.UsuarioID.ReadOnly = true;
+            this.UsuarioID.Width = 120;
             // 
-            // txtUsuarioCedula
+            // UsuarioNombre
             // 
-            this.txtUsuarioCedula.Location = new System.Drawing.Point(113, 114);
-            this.txtUsuarioCedula.Name = "txtUsuarioCedula";
-            this.txtUsuarioCedula.Size = new System.Drawing.Size(203, 33);
-            this.txtUsuarioCedula.TabIndex = 10;
+            this.UsuarioNombre.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.UsuarioNombre.DataPropertyName = "UsuarioNombre";
+            this.UsuarioNombre.HeaderText = "Nombre";
+            this.UsuarioNombre.Name = "UsuarioNombre";
+            this.UsuarioNombre.ReadOnly = true;
             // 
-            // txtUsuarioTelefono
+            // UsuarioCorreo
             // 
-            this.txtUsuarioTelefono.Location = new System.Drawing.Point(113, 153);
-            this.txtUsuarioTelefono.Name = "txtUsuarioTelefono";
-            this.txtUsuarioTelefono.Size = new System.Drawing.Size(203, 33);
-            this.txtUsuarioTelefono.TabIndex = 11;
+            this.UsuarioCorreo.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
+            this.UsuarioCorreo.DataPropertyName = "UsuarioCorreo";
+            this.UsuarioCorreo.HeaderText = "Correo";
+            this.UsuarioCorreo.Name = "UsuarioCorreo";
+            this.UsuarioCorreo.ReadOnly = true;
+            this.UsuarioCorreo.Width = 130;
             // 
-            // txtUsuarioContrseniaContrasenia
+            // UsuarioCedula
             // 
-            this.txtUsuarioContrseniaContrasenia.Location = new System.Drawing.Point(495, 40);
-            this.txtUsuarioContrseniaContrasenia.Name = "txtUsuarioContrseniaContrasenia";
-            this.txtUsuarioContrseniaContrasenia.Size = new System.Drawing.Size(164, 33);
-            this.txtUsuarioContrseniaContrasenia.TabIndex = 12;
-            this.txtUsuarioContrseniaContrasenia.UseSystemPasswordChar = true;
+            this.UsuarioCedula.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
+            this.UsuarioCedula.DataPropertyName = "UsuarioCedula";
+            this.UsuarioCedula.HeaderText = "Cedula";
+            this.UsuarioCedula.Name = "UsuarioCedula";
+            this.UsuarioCedula.ReadOnly = true;
+            this.UsuarioCedula.Width = 120;
             // 
-            // txtUsuarioCorreo
+            // UsuarioTelefono
             // 
-            this.txtUsuarioCorreo.Location = new System.Drawing.Point(497, 79);
-            this.txtUsuarioCorreo.Name = "txtUsuarioCorreo";
-            this.txtUsuarioCorreo.Size = new System.Drawing.Size(162, 33);
-            this.txtUsuarioCorreo.TabIndex = 13;
+            this.UsuarioTelefono.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
+            this.UsuarioTelefono.DataPropertyName = "UsuarioTelefono";
+            this.UsuarioTelefono.HeaderText = "Telefono";
+            this.UsuarioTelefono.Name = "UsuarioTelefono";
+            this.UsuarioTelefono.ReadOnly = true;
+            this.UsuarioTelefono.Width = 120;
             // 
-            // CBRolesUsuario
+            // UsuarioRolDescripcion
             // 
-            this.CBRolesUsuario.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.CBRolesUsuario.FormattingEnabled = true;
-            this.CBRolesUsuario.Location = new System.Drawing.Point(506, 130);
-            this.CBRolesUsuario.Name = "CBRolesUsuario";
-            this.CBRolesUsuario.Size = new System.Drawing.Size(159, 33);
-            this.CBRolesUsuario.TabIndex = 14;
-            // 
-            // Usuari
-            // 
-            this.Usuari.AutoSize = true;
-            this.Usuari.Location = new System.Drawing.Point(385, 130);
-            this.Usuari.Name = "Usuari";
-            this.Usuari.Size = new System.Drawing.Size(104, 25);
-            this.Usuari.TabIndex = 15;
-            this.Usuari.Text = "UsuarioRol";
-            // 
-            // txtUsuarioDireccion
-            // 
-            this.txtUsuarioDireccion.Location = new System.Drawing.Point(488, 184);
-            this.txtUsuarioDireccion.Multiline = true;
-            this.txtUsuarioDireccion.Name = "txtUsuarioDireccion";
-            this.txtUsuarioDireccion.ScrollBars = System.Windows.Forms.ScrollBars.Both;
-            this.txtUsuarioDireccion.Size = new System.Drawing.Size(164, 34);
-            this.txtUsuarioDireccion.TabIndex = 16;
-            // 
-            // txtDireccionUsuario
-            // 
-            this.txtDireccionUsuario.AutoSize = true;
-            this.txtDireccionUsuario.Location = new System.Drawing.Point(385, 187);
-            this.txtDireccionUsuario.Name = "txtDireccionUsuario";
-            this.txtDireccionUsuario.Size = new System.Drawing.Size(97, 25);
-            this.txtDireccionUsuario.TabIndex = 17;
-            this.txtDireccionUsuario.Text = "Direccion:";
-            // 
-            // btnAgregar
-            // 
-            this.btnAgregar.BackColor = System.Drawing.Color.Lime;
-            this.btnAgregar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnAgregar.ForeColor = System.Drawing.Color.White;
-            this.btnAgregar.Location = new System.Drawing.Point(8, 220);
-            this.btnAgregar.Name = "btnAgregar";
-            this.btnAgregar.Size = new System.Drawing.Size(106, 46);
-            this.btnAgregar.TabIndex = 18;
-            this.btnAgregar.Text = "Agregar";
-            this.btnAgregar.UseVisualStyleBackColor = false;
-            // 
-            // btnModificar
-            // 
-            this.btnModificar.BackColor = System.Drawing.Color.Lime;
-            this.btnModificar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnModificar.ForeColor = System.Drawing.Color.White;
-            this.btnModificar.Location = new System.Drawing.Point(161, 226);
-            this.btnModificar.Name = "btnModificar";
-            this.btnModificar.Size = new System.Drawing.Size(106, 46);
-            this.btnModificar.TabIndex = 19;
-            this.btnModificar.Text = "Modificar";
-            this.btnModificar.UseVisualStyleBackColor = false;
-            // 
-            // btnEliminar
-            // 
-            this.btnEliminar.BackColor = System.Drawing.Color.Red;
-            this.btnEliminar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnEliminar.ForeColor = System.Drawing.Color.White;
-            this.btnEliminar.Location = new System.Drawing.Point(314, 224);
-            this.btnEliminar.Name = "btnEliminar";
-            this.btnEliminar.Size = new System.Drawing.Size(106, 46);
-            this.btnEliminar.TabIndex = 20;
-            this.btnEliminar.Text = "Eliminar";
-            this.btnEliminar.UseVisualStyleBackColor = false;
-            // 
-            // btnLimpiar
-            // 
-            this.btnLimpiar.BackColor = System.Drawing.Color.Red;
-            this.btnLimpiar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnLimpiar.ForeColor = System.Drawing.Color.White;
-            this.btnLimpiar.Location = new System.Drawing.Point(467, 227);
-            this.btnLimpiar.Name = "btnLimpiar";
-            this.btnLimpiar.Size = new System.Drawing.Size(106, 46);
-            this.btnLimpiar.TabIndex = 21;
-            this.btnLimpiar.Text = "Limpiar";
-            this.btnLimpiar.UseVisualStyleBackColor = false;
-            // 
-            // btnCancelar
-            // 
-            this.btnCancelar.BackColor = System.Drawing.Color.Red;
-            this.btnCancelar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnCancelar.ForeColor = System.Drawing.Color.White;
-            this.btnCancelar.Location = new System.Drawing.Point(620, 229);
-            this.btnCancelar.Name = "btnCancelar";
-            this.btnCancelar.Size = new System.Drawing.Size(106, 46);
-            this.btnCancelar.TabIndex = 22;
-            this.btnCancelar.Text = "Cancelar";
-            this.btnCancelar.UseVisualStyleBackColor = false;
+            this.UsuarioRolDescripcion.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
+            this.UsuarioRolDescripcion.DataPropertyName = "UsuarioRolDescripcion";
+            this.UsuarioRolDescripcion.HeaderText = "Decpripcion";
+            this.UsuarioRolDescripcion.Name = "UsuarioRolDescripcion";
+            this.UsuarioRolDescripcion.ReadOnly = true;
+            this.UsuarioRolDescripcion.Width = 130;
             // 
             // Usuario_Gestion
             // 
@@ -409,5 +477,11 @@
         private System.Windows.Forms.Button btnModificar;
         private System.Windows.Forms.Button btnLimpiar;
         private System.Windows.Forms.Button btnCancelar;
+        private System.Windows.Forms.DataGridViewTextBoxColumn UsuarioID;
+        private System.Windows.Forms.DataGridViewTextBoxColumn UsuarioNombre;
+        private System.Windows.Forms.DataGridViewTextBoxColumn UsuarioCorreo;
+        private System.Windows.Forms.DataGridViewTextBoxColumn UsuarioCedula;
+        private System.Windows.Forms.DataGridViewTextBoxColumn UsuarioTelefono;
+        private System.Windows.Forms.DataGridViewTextBoxColumn UsuarioRolDescripcion;
     }
 }

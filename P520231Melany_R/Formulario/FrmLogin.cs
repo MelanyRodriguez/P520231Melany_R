@@ -7,7 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-using static System.Net.Mime.MediaTypeNames;
+
 
 namespace P520231Melany_R.Formulario
 {
@@ -25,24 +25,19 @@ namespace P520231Melany_R.Formulario
 
 
         }
-        private void BtnCancelar_Click(object sender, EventArgs e)
-        {
-            Application.Exit();
-
-
-        }
+        
 
        
         private void BtnVer_MouseDown(object sender, MouseEventArgs e)
         {
-            TxtContrasennia.UseSystemPasswordChar=false;
+            //TxtContrasennia.UseSystemPasswordChar=false;
 
 
         }
 
         private void BtnVer_MouseUp(object sender, MouseEventArgs e)
         {
-            TxtContrasennia.UseSystemPasswordChar = true;
+            //TxtContrasennia.UseSystemPasswordChar = true;
         }
 
         private void BtnIngresar_Click(object sender, EventArgs e)

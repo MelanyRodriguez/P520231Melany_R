@@ -16,48 +16,56 @@ namespace logica.models
         public string ProovedorDireccion { get; set; }
         public string ProovedorNotas { get; set; }
         public bool Activo { get; set; }
-    }
-    public bool Agregar ()
-    {
-        bool R = false;
-        return R;
-    }
-    public bool Editar()
-    {
-        bool R = false;
-        return R;
-    }
-    public bool Eliminar()
-    {
-        bool R = false;
-        return R;
-    }
-    public Proovedor ConsultarPorCedula(string pCedula)
-    {
-        Proovedor R = new Proovedor();
-        return R;
+
+        public bool Agregar()
+        {
+            bool R = false;
+            return R;
+        }
+        public bool Editar()
+        {
+            bool R = false;
+            return R;
+        }
+        public bool Eliminar()
+        {
+            bool R = false;
+            return R;
+        }
+        public Proovedor ConsultarPorCedula(string pCedula)
+        {
+            Proovedor R = new Proovedor();
+            return R;
+
+        }
+
+        public Proovedor ConsultarPorEmail(string pEmail)
+        {
+            Proovedor R = new Proovedor();
+            return R;
+
+        }
+
+        public Proovedor ConsultarPorID(int pID)
+        {
+            Proovedor R = new Proovedor();
+            return R;
+
+        }
+
+        public DataTable ListarActivos()
+        {
+            DataTable R = new DataTable();
+            return R;
+        }
+
+
+
+
+
 
     }
-
-    public Proovedor ConsultarPorEmail(string pEmail)
-    {
-        Proovedor R = new Proovedor();
-        return R;
-
-    }
-
-    public Proovedor ConsultarPorID(int pID)
-    {
-        Proovedor R = new Proovedor();
-        return R;
-
-    }
-
-    public DataTable ListarActivos()
-    {
-        DataTable R = new DataTable();
-        return R;
-    }
+   
 }
 
 

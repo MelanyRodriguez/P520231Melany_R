@@ -11,10 +11,26 @@ namespace logica.models
     {
         public int CategoriaID { get; set; }
         public string CategoriaDescripcion { get; set; }
+
+
+        public DataTable listar()
+        {
+            DataTable R = new DataTable();
+            return R;
+        }
+
+
+
+
+
+
+
+
+
+
+
+
+
     }
-    public DataTable listar()
-    {
-        DataTable R = new DataTable();
-        return R;
-    }
+   
 }
