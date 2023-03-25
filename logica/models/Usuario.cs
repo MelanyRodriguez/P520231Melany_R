@@ -33,7 +33,22 @@ namespace logica.models
     public bool Agregar ()
     {
         bool R = false;
-        return R;
+
+            conexion MiCnn= new conexion ();
+            MiCnn.ListaDeParametros.Add(new SqlParameter("@Correo", this.UsuarioCorreo));
+            MiCnn.ListaDeParametros.Add(new SqlParameter("@Contrasennia", this.UsuarioContrasenia));
+            MiCnn.ListaDeParametros.Add(new SqlParameter("@Nombre", this.UsuarioNombre));
+            MiCnn.ListaDeParametros.Add(new SqlParameter("@Cedula", this.UsuarioCedula));
+            MiCnn.ListaDeParametros.Add(new SqlParameter("@Telefono", this.UsuarioTelefono));
+            MiCnn.ListaDeParametros.Add(new SqlParameter("@Direccion", this.UsuarioDireccion));
+            MiCnn.ListaDeParametros.Add(new SqlParameter("@IdRol", this.MiRolTipo.UsuarioRol_ID));
+            int resultado = MiCnn.EjecutarInsertUpdateDelete("SPUsuarioAgregar");
+
+            if (resultado>0)
+            {
+                R = true;
+            }
+            return R;
     }
     public bool Editar()
     {
@@ -90,14 +105,38 @@ namespace logica.models
             return R;
         }
         public bool ConsultarPorCedula()
+
     {
         bool R = false;
+
+            conexion MiCnn= new conexion();
+            MiCnn.ListaDeParametros.Add(new SqlParameter("@Cedula",this.UsuarioCedula));    
+
+            DataTable consulta = new DataTable();
+            consulta = MiCnn.EjecutarSELECT("SPUsuarioConsultarPorCedula");
+            if (consulta!= null && consulta.Rows.Count > 0)
+            {
+                R = true;
+            }
         return R;
     }
     public bool ConsultarPorEmail()
+            
     {
-        bool R = false;
-        return R;
+            bool R = false;
+            conexion MiCnn = new conexion();
+            MiCnn.ListaDeParametros.Add(new SqlParameter("@Correo", this.UsuarioCorreo));
+
+            DataTable consulta = new DataTable();
+            consulta = MiCnn.EjecutarSELECT("SPUsuarioConstarPorEmail");
+            if (consulta != null && consulta.Rows.Count > 0)
+            {
+                R = true;
+
+            }
+            
+         
+            return R;
     }
     public DataTable ListarActivos()
     {
