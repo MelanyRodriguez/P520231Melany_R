@@ -35,8 +35,11 @@ namespace logica.models
         bool R = false;
 
             conexion MiCnn= new conexion ();
+            crypto MiEncriptador = new crypto();
+            string ContraseniaEncriptada = MiEncriptador.EncriptarEnUnSentido(this.UsuarioContrasenia);
+            MiCnn.ListaDeParametros.Add(new SqlParameter("@Contrasennia", ContraseniaEncriptada));
+
             MiCnn.ListaDeParametros.Add(new SqlParameter("@Correo", this.UsuarioCorreo));
-            MiCnn.ListaDeParametros.Add(new SqlParameter("@Contrasennia", this.UsuarioContrasenia));
             MiCnn.ListaDeParametros.Add(new SqlParameter("@Nombre", this.UsuarioNombre));
             MiCnn.ListaDeParametros.Add(new SqlParameter("@Cedula", this.UsuarioCedula));
             MiCnn.ListaDeParametros.Add(new SqlParameter("@Telefono", this.UsuarioTelefono));
@@ -59,8 +62,13 @@ namespace logica.models
         bool R = false;
 
             conexion MiCnn = new conexion();
+
+            crypto MiEncriptador = new crypto();
+            string ContraseniaEncriptada = MiEncriptador.EncriptarEnUnSentido(this.UsuarioContrasenia);
+            MiCnn.ListaDeParametros.Add(new SqlParameter("@Contrasennia", ContraseniaEncriptada));
+
+
             MiCnn.ListaDeParametros.Add(new SqlParameter("@Correo", this.UsuarioCorreo));
-            MiCnn.ListaDeParametros.Add(new SqlParameter("@Contrasennia", this.UsuarioContrasenia));
             MiCnn.ListaDeParametros.Add(new SqlParameter("@Nombre", this.UsuarioNombre));
             MiCnn.ListaDeParametros.Add(new SqlParameter("@Cedula", this.UsuarioCedula));
             MiCnn.ListaDeParametros.Add(new SqlParameter("@Telefono", this.UsuarioTelefono));
@@ -88,9 +96,12 @@ namespace logica.models
               R= true;
             }
 
+           
+
         return R;
     }
-    public bool ConsultarPorID()
+
+   public bool ConsultarPorID()
     {
         bool R = false;
 
@@ -183,22 +194,29 @@ namespace logica.models
          
             return R;
     }
-    public DataTable ListarActivos()
+    public DataTable ListarActivos(string pFiltroBusqueda)
     {
         DataTable R = new DataTable();
 
             conexion MiCnn= new conexion();
 
             MiCnn.ListaDeParametros.Add(new SqlParameter("@VerActivos", true));
-
+            MiCnn.ListaDeParametros.Add(new SqlParameter("@FiltroBusqueda", true));
             R = MiCnn.EjecutarSELECT("PSUsuarioListar");
         return R;
     }
 
-    public DataTable ListarInactivos()
+    public DataTable ListarInactivos(string pFiltroBusqueda)
     {
         DataTable R = new DataTable();
-        return R;
+
+            conexion MiCnn = new conexion();
+
+            MiCnn.ListaDeParametros.Add(new SqlParameter("@VerActivos", false));
+            MiCnn.ListaDeParametros.Add(new SqlParameter("@FiltroBusqueda", pFiltroBusqueda));
+
+            R = MiCnn.EjecutarSELECT("PSUsuarioListar");
+            return R;
     }
 
     public Usuario ValidarUsuario(string pEmail, string pContrasennia)

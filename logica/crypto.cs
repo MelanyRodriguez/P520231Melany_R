@@ -5,9 +5,9 @@ using System.Security.Cryptography;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace P520231Melany_R
+namespace logica
 {
-    public class Crypto
+    public class crypto
     {
 
         //Esta clase contiene los métodos necesarios para encriptar
@@ -88,8 +88,6 @@ namespace P520231Melany_R
             return Resultado.ToString();
 
         }
-
-
 
 
     }

@@ -37,14 +37,22 @@ namespace P520231Melany_R.Formulario
         private void CargarListaUsuarios()
         {
             ListaUsuarios = new DataTable();
-            ListaUsuarios = MiUsuarioLocal.ListarActivos();
+
+            string FiltroBusqueda = "";
+
+            if(!string.IsNullOrEmpty(txtBuscar.Text.Trim()) && txtBuscar.Text.Count() >=3)
+           {
+             FiltroBusqueda= txtBuscar.Text.Trim();
+            }
+
+
             if (CboxVerActivos.Checked)
             {
-                ListaUsuarios = MiUsuarioLocal.ListarActivos();
+                ListaUsuarios = MiUsuarioLocal.ListarActivos(FiltroBusqueda);
             }
             else
             {
-                ListaUsuarios = MiUsuarioLocal.ListarInactivos();
+                ListaUsuarios = MiUsuarioLocal.ListarInactivos(FiltroBusqueda);
 
             }
 
@@ -403,6 +411,66 @@ namespace P520231Melany_R.Formulario
 
 
 
+        }
+
+        private void txtUsuarioNombre_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            e.Handled = Validacion.CaracteresTexto(e, true);
+        }
+
+        private void txtUsuarioCedula_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            e.Handled = Validacion.CaracteresNumeros(e, true);
+        }
+
+        private void txtUsuarioTelefono_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            e.Handled = Validacion.CaracteresTexto(e);
+        }
+
+        private void txtUsuarioCorreo_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            e.Handled = Validacion.CaracteresTexto(e,false,true);
+        }
+
+        private void txtUsuarioContrseniaContrasenia_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            e.Handled = Validacion.CaracteresTexto(e);
+        }
+
+        private void txtUsuarioDireccion_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            e.Handled = Validacion.CaracteresTexto(e,true);
+        }
+
+        private void txtUsuarioCorreo_Leave(object sender, EventArgs e)
+        {
+            if (!string.IsNullOrEmpty(txtUsuarioCorreo.Text.Trim()))
+            {
+               if   (!Validacion.ValidarEmail(txtUsuarioCorreo.Text.Trim()))
+                {
+                    MessageBox.Show("El formato del correo es incorrecto", "Error de validacion", MessageBoxButtons.OK);
+                    txtUsuarioCorreo.Focus();
+                }
+            }
+        }
+
+        private void CboxVerActivos_CheckedChanged(object sender, EventArgs e)
+        {
+            CargarListaUsuarios();
+            if (CboxVerActivos.Checked)
+            {
+                btnEliminar.Text = "ELIMINAR";
+            }
+            else
+            {
+                btnEliminar.Text = "ACTIVAR";
+            }
+        }
+
+        private void txtBuscar_TextChanged(object sender, EventArgs e)
+        {
+            CargarListaUsuarios();
         }
     }
 }

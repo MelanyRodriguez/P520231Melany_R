@@ -42,6 +42,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="crypto.cs" />
     <Compile Include="models\categoriaProducto.cs" />
     <Compile Include="models\Proovedor.cs" />
     <Compile Include="models\TipoCompra.cs" />
