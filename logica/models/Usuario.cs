@@ -51,19 +51,64 @@ namespace logica.models
             return R;
     }
     public bool Editar()
+
     {
+       
+
+
         bool R = false;
-        return R;
+
+            conexion MiCnn = new conexion();
+            MiCnn.ListaDeParametros.Add(new SqlParameter("@Correo", this.UsuarioCorreo));
+            MiCnn.ListaDeParametros.Add(new SqlParameter("@Contrasennia", this.UsuarioContrasenia));
+            MiCnn.ListaDeParametros.Add(new SqlParameter("@Nombre", this.UsuarioNombre));
+            MiCnn.ListaDeParametros.Add(new SqlParameter("@Cedula", this.UsuarioCedula));
+            MiCnn.ListaDeParametros.Add(new SqlParameter("@Telefono", this.UsuarioTelefono));
+            MiCnn.ListaDeParametros.Add(new SqlParameter("@Direccion", this.UsuarioDireccion));
+            MiCnn.ListaDeParametros.Add(new SqlParameter("@IdRol", this.MiRolTipo.UsuarioRol_ID));
+            MiCnn.ListaDeParametros.Add(new SqlParameter("@ID", this.UsuarioId));
+            int resultado = MiCnn.EjecutarInsertUpdateDelete("SPUsuarioModificar");
+
+            if (resultado > 0)
+            {
+                R = true;
+            }
+
+            return R;
     }
     public bool Eliminar()
     {
         bool R = false;
+
+      conexion MiCnn =new conexion();
+            MiCnn.ListaDeParametros.Add(new SqlParameter("ID",this.UsuarioId));
+            int respuesta = MiCnn.EjecutarInsertUpdateDelete("SPUsuarioDesactivar");
+            if (respuesta > 0)
+            {
+              R= true;
+            }
+
         return R;
     }
     public bool ConsultarPorID()
     {
         bool R = false;
-        return R;
+
+            conexion MiCnn = new conexion();
+
+            MiCnn.ListaDeParametros.Add(new SqlParameter("@ID", this.UsuarioId));
+
+            DataTable dt = new DataTable();
+            dt = MiCnn.EjecutarSELECT("SPUsuarioConsultarPorID");
+
+            if (dt != null && dt.Rows.Count > 0)
+
+            {
+                R = true;
+
+            }
+
+            return R;
     }
         public Usuario ConsultarPorIDRetornaUsuario()
         {

@@ -32,6 +32,7 @@ namespace P520231Melany_R.Formulario
             MdiParent = Globales.MiFormPrincipal;
             CargarListaRoles();
             CargarListaUsuarios();
+            ActivarAgregar();
         }
         private void CargarListaUsuarios()
         {
@@ -85,11 +86,27 @@ namespace P520231Melany_R.Formulario
         {
             DGLista.ClearSelection();
         }
+    
+        private void ActivarAgregar()
+        {
+            btnAgregar.Enabled = true;
+            btnModificar.Enabled = false;
+            btnEliminar .Enabled = false;
+        }
+
+        private void ActivarEditarEliminar()
+        {
+            btnAgregar.Enabled = false;
+            btnModificar.Enabled = true;
+            btnEliminar.Enabled = true;
+        }
+
 
         private void DGLista_CellClick(object sender, DataGridViewCellEventArgs e)
         {
             if (DGLista.SelectedRows.Count == 1)
             {
+                LimpiarFormulario();
                 DataGridViewRow MiFila = DGLista.SelectedRows[0];
                 int IDUsuario = Convert.ToInt32(MiFila.Cells["UsuarioID"].Value);
                 MiUsuarioLocal = new logica.models.Usuario();
@@ -107,6 +124,8 @@ namespace P520231Melany_R.Formulario
 
                     CBRolesUsuario.SelectedValue = MiUsuarioLocal.MiRolTipo.UsuarioRol_ID;
 
+                    ActivarEditarEliminar();
+
                 }
 
             }
@@ -115,6 +134,8 @@ namespace P520231Melany_R.Formulario
         private void btnLimpiar_Click(object sender, EventArgs e)
         {
             LimpiarFormulario();
+            DGLista.ClearSelection();
+            ActivarAgregar();   
         }
 
         private void LimpiarFormulario()
@@ -130,19 +151,59 @@ namespace P520231Melany_R.Formulario
             txtUsuarioDireccion.Clear();
         }
 
-        private bool ValidarDatosDigitados()
+        private bool ValidarDatosDigitados(bool OmitirPassword = false )
         {
             bool R = false;
             if(!string.IsNullOrEmpty(txtUsuarioNombre.Text.Trim()) &&
                 !string.IsNullOrEmpty(txtUsuarioCedula.Text.Trim()) &&
                 !string.IsNullOrEmpty(txtUsuarioTelefono.Text.Trim()) &&
                 !string.IsNullOrEmpty(txtUsuarioCorreo.Text.Trim()) &&
-                !string.IsNullOrEmpty(txtUsuarioContrseniaContrasenia.Text.Trim())&&
+               
                 CBRolesUsuario.SelectedIndex>-1)
             {
 
-                 R = true;
+
+                if (OmitirPassword)
+                {
+                    R = true;
+                }
+
+                else
+                {
+                    if (!string.IsNullOrEmpty(txtUsuarioContrseniaContrasenia.Text.Trim()))
+                    {
+                        R = true;
+
+                    }
+
+                    else
+                    {
+                        //Falta pasword
+
+                        
+                            MessageBox.Show("Debe digitar una contrasenia para el usuario", "Error de validacion", MessageBoxButtons.OK);
+                            txtUsuarioContrseniaContrasenia.Focus();
+                            return false;
+                        
+
+                    }
+                }
+
+
+              
+
+
+
+                
+
+
+
             }
+
+
+
+
+
             else
             {
                 //Falta nombre
@@ -178,15 +239,7 @@ namespace P520231Melany_R.Formulario
                     return false;
                 }
 
-                //Falta pasword
-
-                if (string.IsNullOrEmpty(txtUsuarioContrseniaContrasenia.Text.Trim()))
-                {
-                    MessageBox.Show("Debe digitar una contrasenia para el usuario", "Error de validacion", MessageBoxButtons.OK);
-                    txtUsuarioContrseniaContrasenia.Focus();
-                    return false;
-                }
-
+               
                 //Falta roll Usuario
 
                 if (CBRolesUsuario.SelectedIndex==-1)
@@ -224,7 +277,7 @@ namespace P520231Melany_R.Formulario
           if (ValidarDatosDigitados())
             {
 
-            }
+          
 
 
 
@@ -287,6 +340,71 @@ namespace P520231Melany_R.Formulario
         }
 
     }
+
+        private void btnModificar_Click(object sender, EventArgs e)
+        {
+            if (ValidarDatosDigitados(true))
+            {
+                MiUsuarioLocal.UsuarioNombre=txtUsuarioNombre.Text.Trim();
+                MiUsuarioLocal.UsuarioCedula = txtUsuarioCedula.Text.Trim();
+                MiUsuarioLocal.UsuarioTelefono = txtUsuarioTelefono.Text.Trim();
+                MiUsuarioLocal.UsuarioCorreo = txtUsuarioCorreo.Text.Trim();
+                MiUsuarioLocal.UsuarioContrasenia = txtUsuarioContrseniaContrasenia.Text.Trim();
+                MiUsuarioLocal.MiRolTipo.UsuarioRol_ID = Convert.ToInt32(CBRolesUsuario.SelectedValue);
+                MiUsuarioLocal.UsuarioDireccion = txtUsuarioDireccion.Text.Trim();
+
+                if (MiUsuarioLocal.ConsultarPorID())
+                {
+                    DialogResult respuesta = MessageBox.Show("¿Esta seguro de modificar el usuario?", "???", MessageBoxButtons.YesNo,MessageBoxIcon.Warning);
+
+                    if (respuesta == DialogResult.Yes)
+                    {
+                        if(MiUsuarioLocal.Editar())
+                        {
+                            MessageBox.Show("El Usuario ha sido modificado correctamente", ":)", MessageBoxButtons.OK);
+
+                            LimpiarFormulario();
+                            CargarListaUsuarios();
+                        }
+                    }
+                }
+            }
+        }
+
+        private void btnEliminar_Click(object sender, EventArgs e)
+        {
+
+         if (MiUsuarioLocal.UsuarioId>0&& MiUsuarioLocal.ConsultarPorID())
+            {
+
+           if (CboxVerActivos.Checked)
+                {
+                    DialogResult r = MessageBox.Show("¿Esta seguro de eliminar al Usuario?", "???", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+                    if (r == DialogResult.Yes)
+                    {
+                        if (MiUsuarioLocal.Eliminar())
+                        {
+                            MessageBox.Show("El Usuario ha sido eliminado correctamente", "!!!", MessageBoxButtons.OK);
+                            LimpiarFormulario();
+                            CargarListaUsuarios();
+                        }
+                    }
+                }
+           else
+                {
+
+                }
+
+
+            }
+
+
+
+
+
+
+        }
+    }
 }
 
 
@@ -297,7 +415,7 @@ namespace P520231Melany_R.Formulario
 
 
 
-    
+
 
 
 
