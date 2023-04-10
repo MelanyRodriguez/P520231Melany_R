@@ -386,6 +386,7 @@ namespace P520231Melany_R.Formulario
             {
 
            if (CboxVerActivos.Checked)
+                    //ACTIVAR USUARIO
                 {
                     DialogResult r = MessageBox.Show("¿Esta seguro de eliminar al Usuario?", "???", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
                     if (r == DialogResult.Yes)
@@ -398,17 +399,32 @@ namespace P520231Melany_R.Formulario
                         }
                     }
                 }
-           else
+           else      
                 {
+                 DialogResult r = MessageBox.Show("¿Esta seguro de activar al usuario?","???",MessageBoxButtons.YesNo,MessageBoxIcon.Question);
+                    if (r== DialogResult.Yes)
+                    {
+
+                       if (MiUsuarioLocal.Activar())
+                        {
+
+                            MessageBox.Show("El usuario ha side eliminado correctamente", "!!!", MessageBoxButtons.OK);
+                            LimpiarFormulario();
+                            CargarListaUsuarios();
+
+
+                        }
+
+
+
+
+
+                    }
 
                 }
 
 
             }
-
-
-
-
 
 
         }

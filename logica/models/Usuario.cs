@@ -101,7 +101,26 @@ namespace logica.models
         return R;
     }
 
-   public bool ConsultarPorID()
+
+        public bool Activar()
+        {
+            bool R = false;
+
+            conexion MiCnn = new conexion();
+            MiCnn.ListaDeParametros.Add(new SqlParameter("ID", this.UsuarioId));
+            int respuesta = MiCnn.EjecutarInsertUpdateDelete("SPUsuarioActivar");
+            if (respuesta > 0)
+            {
+                R = true;
+            }
+
+            return R;
+        }
+
+
+
+        public bool ConsultarPorID()
+     
     {
         bool R = false;
 
