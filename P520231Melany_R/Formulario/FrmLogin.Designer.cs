@@ -36,6 +36,7 @@
             this.BtnCancelar = new System.Windows.Forms.Button();
             this.lblRecuperarContrasennia = new System.Windows.Forms.LinkLabel();
             this.BtnVer = new System.Windows.Forms.Button();
+            this.BtnIngresoDirecto = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // TxtEmail
@@ -123,12 +124,24 @@
             this.BtnVer.MouseDown += new System.Windows.Forms.MouseEventHandler(this.BtnVer_MouseDown);
             this.BtnVer.MouseUp += new System.Windows.Forms.MouseEventHandler(this.BtnVer_MouseUp);
             // 
+            // BtnIngresoDirecto
+            // 
+            this.BtnIngresoDirecto.Location = new System.Drawing.Point(32, 276);
+            this.BtnIngresoDirecto.Name = "BtnIngresoDirecto";
+            this.BtnIngresoDirecto.Size = new System.Drawing.Size(95, 20);
+            this.BtnIngresoDirecto.TabIndex = 8;
+            this.BtnIngresoDirecto.Text = "IngresoDirecto";
+            this.BtnIngresoDirecto.UseVisualStyleBackColor = true;
+            this.BtnIngresoDirecto.Visible = false;
+            this.BtnIngresoDirecto.Click += new System.EventHandler(this.BtnIngresoDirecto_Click);
+            // 
             // FrmLogin
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.ActiveBorder;
             this.ClientSize = new System.Drawing.Size(280, 450);
+            this.Controls.Add(this.BtnIngresoDirecto);
             this.Controls.Add(this.BtnVer);
             this.Controls.Add(this.lblRecuperarContrasennia);
             this.Controls.Add(this.BtnCancelar);
@@ -139,9 +152,11 @@
             this.Controls.Add(this.TxtEmail);
             this.ForeColor = System.Drawing.Color.Red;
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedToolWindow;
+            this.KeyPreview = true;
             this.Name = "FrmLogin";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "FrmLogin";
+            this.KeyDown += new System.Windows.Forms.KeyEventHandler(this.FrmLogin_KeyDown);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -157,5 +172,6 @@
         private System.Windows.Forms.Button BtnCancelar;
         private System.Windows.Forms.LinkLabel lblRecuperarContrasennia;
         private System.Windows.Forms.Button BtnVer;
+        private System.Windows.Forms.Button BtnIngresoDirecto;
     }
 }

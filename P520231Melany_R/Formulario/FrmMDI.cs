@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
+using System.Diagnostics;
 using System.Drawing;
 using System.Linq;
 using System.Text;
@@ -50,6 +51,45 @@ namespace P520231Melany_R.Formulario
         private void FrmMDI_Load(object sender, EventArgs e)
         {
 
+            string InfoUsuario = string.Format("{0}-{1}({2})"
+  
+                                              Globales.MiUsuarioGlobal.UsuarioNombre,
+                                              Globales.MiUsuarioGlobal.UsuarioCorreo,
+                                              Globales.MiUsuarioGlobal.MiRolTipo.UsuarioRolDescripcion);
+            lblUsuario.Text = InfoUsuario;
+
+            switch (Globales.MiUsuarioGlobal.MiRolTipo.UsuarioRol_ID)
+            {
+                case 1:
+                    break;
+
+                    case 2:
+                    gestionDeUsuariosToolStripMenuItem.Visible = false;
+                    rolesDeUsuarioToolStripMenuItem.Visible=false;
+                    tiposDeProovedorToolStripMenuItem.Visible=false;
+                    tiposDeCompraToolStripMenuItem.Visible = false;
+                    break;
+            }
+
+
+
+
+
+
+
+
+
+        }
+
+        private void registroDeComprasToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+
+            if (!Globales.MiFormRegistroCompra.Visible)
+            {
+                Globales.MiFormRegistroCompra=new FrmRegistroCompras();
+
+                Globales.MiFormRegistroCompra.Show();
+            }
         }
     }
 }

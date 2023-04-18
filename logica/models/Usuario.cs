@@ -241,9 +241,44 @@ namespace logica.models
     public Usuario ValidarUsuario(string pEmail, string pContrasennia)
     {
         Usuario R = new Usuario();
-        return R;
 
-    }
+
+            conexion MiCnn = new conexion();
+
+            crypto crypto= new crypto();
+            string ContraseniaEncriptada = crypto.EncriptarEnUnSentido(pContrasennia);
+
+            MiCnn.ListaDeParametros.Add(new SqlParameter("@usuario", pEmail));
+            MiCnn.ListaDeParametros.Add(new SqlParameter("@passworld", ContraseniaEncriptada));
+
+            DataTable dt = new DataTable();
+            dt = MiCnn.EjecutarSELECT("SPUsuarioValidarIngreso");
+
+            if (dt != null && dt.Rows.Count > 0)
+
+            {
+                DataRow dr = dt.Rows[0];
+                R.UsuarioId = Convert.ToInt32(dr["UsuarioID"]);
+                R.UsuarioNombre = Convert.ToString(dr["UsuarioNombre"]);
+                R.UsuarioCorreo = Convert.ToString(dr["UsuarioCorreo"]);
+                R.UsuarioCedula = Convert.ToString(dr["UsuarioCedula"]);
+                R.UsuarioTelefono = Convert.ToString(dr["UsuarioTelefono"]);
+                R.UsuarioDireccion = Convert.ToString(dr["UsuarioDireccion"]);
+                R.UsuarioContrasenia = string.Empty;
+
+                R.MiRolTipo.UsuarioRol_ID = Convert.ToInt32(dr["UsuarioRolID"]);
+                R.MiRolTipo.UsuarioRolDescripcion = Convert.ToString(dr["UsuarioRolDescripcion"]);
+
+
+            }
+
+
+
+
+            return R;
+
+
+        }
 
 
 
