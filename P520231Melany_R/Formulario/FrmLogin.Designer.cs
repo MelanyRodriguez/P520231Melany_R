@@ -29,9 +29,9 @@
         private void InitializeComponent()
         {
             this.TxtEmail = new System.Windows.Forms.Label();
-            this.TxtContrasennia = new System.Windows.Forms.Label();
+            this.LblContrasennia = new System.Windows.Forms.Label();
             this.textBox1 = new System.Windows.Forms.TextBox();
-            this.textBox2 = new System.Windows.Forms.TextBox();
+            this.TxtContrasennia = new System.Windows.Forms.TextBox();
             this.BtnIngresar = new System.Windows.Forms.Button();
             this.BtnCancelar = new System.Windows.Forms.Button();
             this.lblRecuperarContrasennia = new System.Windows.Forms.LinkLabel();
@@ -49,15 +49,15 @@
             this.TxtEmail.TabIndex = 0;
             this.TxtEmail.Text = "Correo Electronico";
             // 
-            // TxtContrasennia
+            // LblContrasennia
             // 
-            this.TxtContrasennia.AutoSize = true;
-            this.TxtContrasennia.Font = new System.Drawing.Font("Microsoft YaHei Light", 14.25F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.TxtContrasennia.Location = new System.Drawing.Point(59, 192);
-            this.TxtContrasennia.Name = "TxtContrasennia";
-            this.TxtContrasennia.Size = new System.Drawing.Size(125, 25);
-            this.TxtContrasennia.TabIndex = 1;
-            this.TxtContrasennia.Text = "Contrasennia";
+            this.LblContrasennia.AutoSize = true;
+            this.LblContrasennia.Font = new System.Drawing.Font("Microsoft YaHei Light", 14.25F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.LblContrasennia.Location = new System.Drawing.Point(59, 192);
+            this.LblContrasennia.Name = "LblContrasennia";
+            this.LblContrasennia.Size = new System.Drawing.Size(125, 25);
+            this.LblContrasennia.TabIndex = 1;
+            this.LblContrasennia.Text = "Contrasennia";
             // 
             // textBox1
             // 
@@ -67,13 +67,13 @@
             this.textBox1.TabIndex = 2;
             this.textBox1.UseSystemPasswordChar = true;
             // 
-            // textBox2
+            // TxtContrasennia
             // 
-            this.textBox2.Location = new System.Drawing.Point(12, 250);
-            this.textBox2.Name = "textBox2";
-            this.textBox2.Size = new System.Drawing.Size(214, 20);
-            this.textBox2.TabIndex = 3;
-            this.textBox2.UseSystemPasswordChar = true;
+            this.TxtContrasennia.Location = new System.Drawing.Point(12, 250);
+            this.TxtContrasennia.Name = "TxtContrasennia";
+            this.TxtContrasennia.Size = new System.Drawing.Size(214, 20);
+            this.TxtContrasennia.TabIndex = 3;
+            this.TxtContrasennia.UseSystemPasswordChar = true;
             // 
             // BtnIngresar
             // 
@@ -98,6 +98,7 @@
             this.BtnCancelar.TabIndex = 5;
             this.BtnCancelar.Text = "Cancelar";
             this.BtnCancelar.UseVisualStyleBackColor = false;
+            
             // 
             // lblRecuperarContrasennia
             // 
@@ -132,7 +133,6 @@
             this.BtnIngresoDirecto.TabIndex = 8;
             this.BtnIngresoDirecto.Text = "IngresoDirecto";
             this.BtnIngresoDirecto.UseVisualStyleBackColor = true;
-            this.BtnIngresoDirecto.Visible = false;
             this.BtnIngresoDirecto.Click += new System.EventHandler(this.BtnIngresoDirecto_Click);
             // 
             // FrmLogin
@@ -146,9 +146,9 @@
             this.Controls.Add(this.lblRecuperarContrasennia);
             this.Controls.Add(this.BtnCancelar);
             this.Controls.Add(this.BtnIngresar);
-            this.Controls.Add(this.textBox2);
-            this.Controls.Add(this.textBox1);
             this.Controls.Add(this.TxtContrasennia);
+            this.Controls.Add(this.textBox1);
+            this.Controls.Add(this.LblContrasennia);
             this.Controls.Add(this.TxtEmail);
             this.ForeColor = System.Drawing.Color.Red;
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedToolWindow;
@@ -165,9 +165,9 @@
         #endregion
 
         private System.Windows.Forms.Label TxtEmail;
-        private System.Windows.Forms.Label TxtContrasennia;
+        private System.Windows.Forms.Label LblContrasennia;
         private System.Windows.Forms.TextBox textBox1;
-        private System.Windows.Forms.TextBox textBox2;
+        private System.Windows.Forms.TextBox TxtContrasennia;
         private System.Windows.Forms.Button BtnIngresar;
         private System.Windows.Forms.Button BtnCancelar;
         private System.Windows.Forms.LinkLabel lblRecuperarContrasennia;

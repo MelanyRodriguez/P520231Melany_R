@@ -51,11 +51,12 @@ namespace P520231Melany_R.Formulario
         private void FrmMDI_Load(object sender, EventArgs e)
         {
 
-            string InfoUsuario = string.Format("{0}-{1}({2})"
-  
+            string InfoUsuario = string.Format("{0}-{1}({2})",
+
+
                                               Globales.MiUsuarioGlobal.UsuarioNombre,
                                               Globales.MiUsuarioGlobal.UsuarioCorreo,
-                                              Globales.MiUsuarioGlobal.MiRolTipo.UsuarioRolDescripcion);
+                                              Globales.MiUsuarioGlobal.MiRolTipo.UsuarioRolDescripcion); ;
             lblUsuario.Text = InfoUsuario;
 
             switch (Globales.MiUsuarioGlobal.MiRolTipo.UsuarioRol_ID)

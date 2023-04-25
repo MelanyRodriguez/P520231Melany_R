@@ -4,10 +4,11 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Data;
+using logica.Servicios;
 
 namespace logica.models
 {
-    internal class TipoCompra
+    public class TipoCompra
     {
         public int CompraTipoID { get; set; }
         public string CompraTipoDescripcion{ get; set; }
@@ -15,6 +16,11 @@ namespace logica.models
         public DataTable Listar()
         {
             DataTable R = new DataTable();
+
+
+            conexion MiCnn = new conexion();
+
+            R = MiCnn.EjecutarSELECT("SPTipoCompraListar");
 
             return R;
         }

@@ -44,6 +44,9 @@
   <ItemGroup>
     <Compile Include="crypto.cs" />
     <Compile Include="models\categoriaProducto.cs" />
+    <Compile Include="models\Compra.cs" />
+    <Compile Include="models\CompraDetalle.cs" />
+    <Compile Include="models\Producto.cs" />
     <Compile Include="models\Proovedor.cs" />
     <Compile Include="models\TipoCompra.cs" />
     <Compile Include="models\TipoProovedor.cs" />

@@ -44,10 +44,10 @@ namespace P520231Melany_R.Formulario
         {
             //
             if (!string.IsNullOrEmpty(TxtEmail.Text.Trim()) &&
-                !string.IsNullOrEmpty(TxtContrasennia.Text.Trim()))
+                !string.IsNullOrEmpty(LblContrasennia.Text.Trim()))
             {
                 string usuario=TxtEmail.Text.Trim();
-                string contrasenia=TxtContrasennia.Text.Trim();
+                string contrasenia=LblContrasennia.Text.Trim();
                 //tratar de validar que los datos sean los correctos
 
                 Globales.MiUsuarioGlobal = Globales.MiUsuarioGlobal.ValidarUsuario(usuario, contrasenia);
@@ -60,8 +60,8 @@ namespace P520231Melany_R.Formulario
 
                else
                 {
-                    MessageBox.Show("Usiario o Contraseña sin incorrectas", "Error en validacion", MessageBoxButtons.OK);
-                    TxtContrasennia.Focus();
+                    MessageBox.Show("Usuario o Contraseña son incorrectas", "Error en validacion", MessageBoxButtons.OK);
+                     TxtContrasennia.Focus();
                     TxtContrasennia.SelectAll();
                 }
 
@@ -93,6 +93,8 @@ namespace P520231Melany_R.Formulario
             Globales.MiFormPrincipal.Show();
             this.Hide();
         }
+
+    
     }
 }
 
