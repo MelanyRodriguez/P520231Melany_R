@@ -52,6 +52,12 @@
     <Compile Include="Formulario\FrmCompraBuscar.Designer.cs">
       <DependentUpon>FrmCompraBuscar.cs</DependentUpon>
     </Compile>
+    <Compile Include="Formulario\FrmGestionProovedores.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Formulario\FrmGestionProovedores.Designer.cs">
+      <DependentUpon>FrmGestionProovedores.cs</DependentUpon>
+    </Compile>
     <Compile Include="Formulario\FrmLogin.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -88,6 +94,9 @@
     <Compile Include="Validacion.cs" />
     <EmbeddedResource Include="Formulario\FrmCompraBuscar.resx">
       <DependentUpon>FrmCompraBuscar.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Formulario\FrmGestionProovedores.resx">
+      <DependentUpon>FrmGestionProovedores.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Formulario\FrmLogin.resx">
       <DependentUpon>FrmLogin.cs</DependentUpon>

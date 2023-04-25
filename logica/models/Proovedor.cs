@@ -22,6 +22,25 @@ namespace logica.models
         public bool Agregar()
         {
             bool R = false;
+
+        conexion MiCnn = new conexion();
+            MiCnn.ListaDeParametros.Add(new SqlParameter("@Nombre",this.ProovedorNombre));
+            MiCnn.ListaDeParametros.Add(new SqlParameter("@Cedula ", this.ProovedorCedula));
+            MiCnn.ListaDeParametros.Add(new SqlParameter("@Correo", this.ProovedorEmail));
+            MiCnn.ListaDeParametros.Add(new SqlParameter("@Direccion", this.ProovedorDireccion));
+            MiCnn.ListaDeParametros.Add(new SqlParameter("@Notas", this.ProovedorNotas));
+
+            MiCnn.ListaDeParametros.Add(new SqlParameter("@TipoProveedor", this.MiTipoProovedor.PreoovedorTipoID));
+
+            int resultado = MiCnn.EjecutarInsertUpdateDelete("SPProveedorAgregar");
+
+            if (resultado > 0)
+
+            {
+                R = true;
+            }
+
+
             return R;
         }
         public bool Editar()
@@ -34,6 +53,29 @@ namespace logica.models
             bool R = false;
             return R;
         }
+
+        public DataTable ListarActivos()
+        {
+            DataTable R= new DataTable();
+
+            conexion MiCnn = new conexion();
+
+            MiCnn.ListaDeParametros.Add(new SqlParameter("@VerActivos", true));
+
+            R = MiCnn.EjecutarSELECT("SPProovedorListarActuales");
+
+            return R;
+        }
+
+        public DataTable ListarInactivos()
+        {
+            DataTable R = new DataTable();
+
+
+            return R;
+        }
+
+        
         public Proovedor ConsultarPorCedula(string pCedula)
         {
             Proovedor R = new Proovedor();

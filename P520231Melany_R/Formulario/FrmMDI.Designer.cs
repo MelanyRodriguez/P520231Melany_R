@@ -106,6 +106,7 @@
             this.gestionDeProovedporesToolStripMenuItem.Name = "gestionDeProovedporesToolStripMenuItem";
             this.gestionDeProovedporesToolStripMenuItem.Size = new System.Drawing.Size(290, 30);
             this.gestionDeProovedporesToolStripMenuItem.Text = "Gestion de Proovedores";
+            this.gestionDeProovedporesToolStripMenuItem.Click += new System.EventHandler(this.gestionDeProovedporesToolStripMenuItem_Click);
             // 
             // cateToolStripMenuItem
             // 

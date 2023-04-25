@@ -36,10 +36,10 @@
             this.CCantidadStock = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.CPrecioVentaUnitario = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.panel1 = new System.Windows.Forms.Panel();
-            this.NumUDCantidad = new System.Windows.Forms.NumericUpDown();
             this.label1 = new System.Windows.Forms.Label();
             this.BtnAceptar = new System.Windows.Forms.Button();
             this.BtnCancelar = new System.Windows.Forms.Button();
+            this.NumUDCantidad = new System.Windows.Forms.NumericUpDown();
             ((System.ComponentModel.ISupportInitialize)(this.DgvLista)).BeginInit();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.NumUDCantidad)).BeginInit();
@@ -124,15 +124,6 @@
             this.panel1.Size = new System.Drawing.Size(717, 114);
             this.panel1.TabIndex = 2;
             // 
-            // NumUDCantidad
-            // 
-            this.NumUDCantidad.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.NumUDCantidad.Location = new System.Drawing.Point(291, 65);
-            this.NumUDCantidad.Name = "NumUDCantidad";
-            this.NumUDCantidad.Size = new System.Drawing.Size(121, 29);
-            this.NumUDCantidad.TabIndex = 1;
-            this.NumUDCantidad.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            // 
             // label1
             // 
             this.label1.AutoSize = true;
@@ -167,6 +158,15 @@
             this.BtnCancelar.UseVisualStyleBackColor = false;
             this.BtnCancelar.Click += new System.EventHandler(this.BtnCancelar_Click);
             // 
+            // NumUDCantidad
+            // 
+            this.NumUDCantidad.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.NumUDCantidad.Location = new System.Drawing.Point(291, 60);
+            this.NumUDCantidad.Name = "NumUDCantidad";
+            this.NumUDCantidad.Size = new System.Drawing.Size(120, 29);
+            this.NumUDCantidad.TabIndex = 1;
+            this.NumUDCantidad.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            // 
             // FrmCompraBuscar
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -197,7 +197,6 @@
         private System.Windows.Forms.TextBox TxtBuscar;
         private System.Windows.Forms.DataGridView DgvLista;
         private System.Windows.Forms.Panel panel1;
-        private System.Windows.Forms.NumericUpDown NumUDCantidad;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Button BtnAceptar;
         private System.Windows.Forms.Button BtnCancelar;
@@ -206,5 +205,6 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn CProductoCodigoBarras;
         private System.Windows.Forms.DataGridViewTextBoxColumn CCantidadStock;
         private System.Windows.Forms.DataGridViewTextBoxColumn CPrecioVentaUnitario;
+        private System.Windows.Forms.NumericUpDown NumUDCantidad;
     }
 }

@@ -92,5 +92,15 @@ namespace P520231Melany_R.Formulario
                 Globales.MiFormRegistroCompra.Show();
             }
         }
+
+        private void gestionDeProovedporesToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            if (!Globales.MiFormGestionProovedores.Visible)
+            {
+                Globales.MiFormGestionProovedores = new FrmGestionProovedores();
+
+                Globales.MiFormGestionProovedores.Show();
+            }
+        }
     }
 }

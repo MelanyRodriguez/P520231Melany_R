@@ -14,6 +14,7 @@ namespace P520231Melany_R
         public static Form MiFormPrincipal= new Formulario.FrmMDI();
 
         public static Formulario.Usuario_Gestion MiFormGestionUsuarios = new Formulario.Usuario_Gestion();
+        public static Formulario.FrmGestionProovedores MiFormGestionProovedores= new Formulario.FrmGestionProovedores();
         
         public static logica.models.Usuario MiUsuarioGlobal= new logica.models.Usuario();
         public static Formulario.FrmRegistroCompras MiFormRegistroCompra= new Formulario.FrmRegistroCompras();
